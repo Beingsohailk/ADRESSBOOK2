@@ -1,14 +1,44 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" id="menuicon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  
+  <span id ="MenuTitle">ADRESSBOOK</span>
 
-    <button mat-button color="primary">Primary</button>
-    <button mat-button color="accent">Accent</button>
-    <button mat-button color="warn">Warn</button>
-    <button mat-button disabled>Disabled</button>
+  <a mat-button routerLink="/" class="top-menu-item"><mat-icon>home</mat-icon>Home</a>
+  <a mat-button routerLink routerLink="/contacts"class="top-menu-item"><mat-icon>call</mat-icon>contacts</a>
+  <a mat-button routerLink  routerLink="/newcontact"class="top-menu-item"><mat-icon>contacts</mat-icon>New Contact</a>
 
 
-    <br>
+  
+  
+</mat-toolbar>
+  
+<mat-sidenav-container>
+  <mat-sidenav #sidenav [fixedInViewport]="true"[fixedTopGap]="60" mode="side">
+    <div class="side-nav-items">
+      <div>
+        <a (click)="sidenav.close()" mat-button routerLink="/" class="side-menu-item"><mat-icon>home</mat-icon>Home</a>
+      </div>
+     
+        <div>
+          <a (click)="sidenav.close()" mat-button routerLink routerLink="/contacts"class="side-menu-item"><mat-icon>call</mat-icon>contacts</a>
+
+        </div>
+      <div>
+        
+      <a (click)="sidenav.close()" mat-button routerLink  routerLink="/newcontact"class="side-menu-item"><mat-icon>contacts</mat-icon>New Contact</a>
+      </div>
+    </div>
+ 
+  </mat-sidenav>
 
 
-    <button mat-raised-button color="primary">Primary</button>
-    <button mat-raised-button color="accent">Accent</button>
-    <button mat-raised-button color="warn">Warn</button>
-    <button mat-raised-button disabled>Disabled</button>
+  <mat-sidenav-content>
+    <div class="main-content ">
+      <router-outlet></router-outlet>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
